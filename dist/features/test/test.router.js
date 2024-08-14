@@ -8,6 +8,7 @@ class TestRouter {
         this.router = (0, express_1.Router)();
         this.controller = new controller_1.TestController();
         this.router.get('/create-sample-user', this.controller.testCreateUser);
+        this.router.get('/product', this.controller.testShowProduct);
     }
 }
 exports.TestRouter = TestRouter;

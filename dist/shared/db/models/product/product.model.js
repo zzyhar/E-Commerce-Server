@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserModel = exports.VOProduct = void 0;
+exports.ProductModel = exports.VOProduct = void 0;
 const mongoose_1 = require("mongoose");
 const dbUse_1 = require("shared/db/dbUse");
 class VOProduct {
@@ -8,6 +8,9 @@ class VOProduct {
         this.title = '';
         this.description = '';
         this.slug = '';
+        this.categoty = '';
+        this.images = [];
+        this.category = '';
         this.variations = [];
     }
 }
@@ -22,6 +25,14 @@ const ProductSchema = new mongoose_1.Schema({
         default: null
     },
     description: {
+        type: String,
+        default: null
+    },
+    images: {
+        type: [String],
+        default: []
+    },
+    category: {
         type: String,
         default: null
     },
@@ -56,4 +67,4 @@ const ProductSchema = new mongoose_1.Schema({
     timestamps: true,
     versionKey: false
 });
-exports.UserModel = dbUse_1.mongoEcommerceStore.model('products', ProductSchema);
+exports.ProductModel = dbUse_1.mongoEcommerceStore.model('products', ProductSchema);

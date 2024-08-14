@@ -8,6 +8,10 @@ export class VOProduct {
   title: string = ''
   description: string = ''
   slug: string = ''
+  categoty: string = ''
+
+  images: string[] = []
+  category: string = ''
 
   variations: {
     _id: Types.ObjectId
@@ -36,7 +40,14 @@ const ProductSchema = new Schema(
       type: String,
       default: null
     },
-
+    images: {
+      type: [String],
+      default: []
+    },
+    category: {
+      type: String,
+      default: null
+    },
     variations: {
       type: [
         {
@@ -71,4 +82,4 @@ const ProductSchema = new Schema(
   }
 )
 
-export const UserModel: Model<VOProduct> = mongoEcommerceStore.model<VOProduct>('products', ProductSchema)
+export const ProductModel: Model<VOProduct> = mongoEcommerceStore.model<VOProduct>('products', ProductSchema)

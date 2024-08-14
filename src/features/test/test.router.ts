@@ -8,5 +8,6 @@ export class TestRouter {
   // just connect any needed middeware
   constructor() {
     this.router.get('/create-sample-user', this.controller.testCreateUser)
+    this.router.get('/product', this.controller.testShowProduct)
   }
 }
