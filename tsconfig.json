@@ -28,7 +28,8 @@
     "baseUrl": "./src",
     "paths": {
       "shared/*": ["./shared/*"],
-      "test/*": ["./features/test/*"],
+      "users/*": ["./features/users/*"],
+      "products/*": ["./features/products/*"],
     }
   },
   "include": [

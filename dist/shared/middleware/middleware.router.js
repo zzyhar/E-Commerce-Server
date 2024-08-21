@@ -22,14 +22,20 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MiddlewareRouter = void 0;
 const express_1 = __importStar(require("express"));
-const cookie_parser_with_session_1 = require("./controller/cookie-parser-with-session");
+const cors_1 = __importDefault(require("cors"));
 class MiddlewareRouter {
     constructor() {
         this.router = (0, express_1.Router)();
-        this.router.use((0, cookie_parser_with_session_1.cookieParserWithSessionDefaultSetup)());
+        this.router.use((0, cors_1.default)({
+            origin: 'http://localhost:5173',
+            optionsSuccessStatus: 200
+        }));
         this.router.use(express_1.default.json({ limit: '5mb' }));
         this.router.use(express_1.default.urlencoded({ limit: '5mb', extended: true, parameterLimit: 10000 }));
     }

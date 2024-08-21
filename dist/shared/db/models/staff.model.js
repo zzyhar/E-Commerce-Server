@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserModel = exports.VOStaff = void 0;
+exports.UserModel = exports.VOUser = void 0;
 const mongoose_1 = require("mongoose");
 const dbUse_1 = require("shared/db/dbUse");
-class VOStaff {
+class VOUser {
     constructor() {
         this.roles = [];
         this.first_name = '';
@@ -14,7 +14,7 @@ class VOStaff {
         this.social_media = [];
     }
 }
-exports.VOStaff = VOStaff;
+exports.VOUser = VOUser;
 const StaffSchema = new mongoose_1.Schema({
     roles: {
         type: [String],

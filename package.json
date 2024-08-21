@@ -14,13 +14,16 @@
   "license": "ISC",
   "_moduleAliases": {
     "shared": "dist/shared",
-    "test": "dist/features/test"
+    "products": "dist/features/products",
+    "users": "dist/features/users"
   },
   "dependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express-session": "^1.18.0",
     "@types/redis": "^4.0.11",
     "config": "^3.3.12",
     "connect-redis": "^7.1.1",
+    "cors": "^2.8.5",
     "cron": "^3.1.7",
     "express": "^4.19.2",
     "express-session": "^1.18.0",

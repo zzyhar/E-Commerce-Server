@@ -8,10 +8,11 @@ export class VOProduct {
   title: string = ''
   description: string = ''
   slug: string = ''
-  categoty: string = ''
+  categories: string[] = []
 
   images: string[] = []
-  category: string = ''
+  category: string[] = []
+  tags: string[] = []
 
   variations: {
     _id: Types.ObjectId
@@ -20,6 +21,7 @@ export class VOProduct {
     rating: number
     price: number
     salePrice: number
+    images: string[]
   }[] = []
 
   createdAt?: Date
@@ -44,19 +46,24 @@ const ProductSchema = new Schema(
       type: [String],
       default: []
     },
-    category: {
-      type: String,
+    categories: {
+      type: [String],
+      default: null
+    },
+    tags: {
+      type: [String],
       default: null
     },
     variations: {
       type: [
         {
+          _id: false,
           size: {
-            type: [String],
+            type: String,
             default: []
           },
           color: {
-            type: [String],
+            type: String,
             default: []
           },
           rating: {
@@ -70,6 +77,10 @@ const ProductSchema = new Schema(
           salePrice: {
             type: Number,
             default: null
+          },
+          images: {
+            type: [String],
+            default: []
           }
         }
       ],

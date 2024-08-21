@@ -1,22 +1,21 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserModel = exports.VOStaff = void 0;
+exports.UserModel = exports.VOUser = void 0;
 const mongoose_1 = require("mongoose");
 const dbUse_1 = require("shared/db/dbUse");
-class VOStaff {
+class VOUser {
     constructor() {
-        this.roles = [];
+        this.user_role = [];
         this.first_name = '';
         this.last_name = '';
         this.password = '';
         this.profile_url = '';
         this.email = '';
-        this.social_media = [];
     }
 }
-exports.VOStaff = VOStaff;
-const StaffSchema = new mongoose_1.Schema({
-    roles: {
+exports.VOUser = VOUser;
+const UserSchema = new mongoose_1.Schema({
+    user_role: {
         type: [String],
         default: []
     },
@@ -39,13 +38,9 @@ const StaffSchema = new mongoose_1.Schema({
     email: {
         type: String,
         default: null
-    },
-    social_media: {
-        type: [String],
-        default: []
     }
 }, {
     timestamps: true,
     versionKey: false
 });
-exports.UserModel = dbUse_1.mongoEcommerceStore.model('staff', StaffSchema);
+exports.UserModel = dbUse_1.mongoEcommerceStore.model('users', UserSchema);
