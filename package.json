@@ -15,7 +15,8 @@
   "_moduleAliases": {
     "shared": "dist/shared",
     "products": "dist/features/products",
-    "users": "dist/features/users"
+    "users": "dist/features/users",
+    "cms": "dist/features/cms"
   },
   "dependencies": {
     "@types/cors": "^2.8.17",

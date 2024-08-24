@@ -1,25 +1,30 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductModel = exports.VOCategories = void 0;
+exports.CategoryModel = exports.VOCategories = void 0;
 const mongoose_1 = require("mongoose");
 const dbUse_1 = require("shared/db/dbUse");
 class VOCategories {
     constructor() {
         this.parent_key = '';
-        this.description = '';
         this.group_key = '';
+        this.name = '';
+        this.description = '';
         this.key = '';
         this.value = '';
-        this.order = 0;
+        this.icon = '';
     }
 }
 exports.VOCategories = VOCategories;
 const CategoriesSchema = new mongoose_1.Schema({
-    parent_key: {
+    parentKey: {
         type: String,
         default: null
     },
-    group_key: {
+    groupKey: {
+        type: String,
+        default: null
+    },
+    name: {
         type: String,
         default: null
     },
@@ -43,4 +48,4 @@ const CategoriesSchema = new mongoose_1.Schema({
     timestamps: true,
     versionKey: false
 });
-exports.ProductModel = dbUse_1.mongoEcommerceStore.model('categories', CategoriesSchema);
+exports.CategoryModel = dbUse_1.mongoEcommerceStore.model('categories', CategoriesSchema);

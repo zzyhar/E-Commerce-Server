@@ -30,7 +30,9 @@
       "shared/*": ["./shared/*"],
       "users/*": ["./features/users/*"],
       "products/*": ["./features/products/*"],
-    }
+      "cms/*": ["./features/cms/*"],
+    },
+    "strictPropertyInitialization": false,
   },
   "include": [
     "./src/**/*.ts"

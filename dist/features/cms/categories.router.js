@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CMSRouter = void 0;
+exports.CategoriesRouter = void 0;
 const express_1 = require("express");
-const controller_1 = require("./controller");
-class CMSRouter {
+const index_1 = require("../products/controller/index");
+class CategoriesRouter {
     constructor() {
         this.router = (0, express_1.Router)();
-        this.controller = new controller_1.CMSController();
+        this.controller = new index_1.CategoriesController();
         this.router.post('/get-categories', this.controller.getCategories);
     }
 }
-exports.CMSRouter = CMSRouter;
+exports.CategoriesRouter = CategoriesRouter;

@@ -5,28 +5,41 @@ import { mongoEcommerceStore } from 'shared/db/dbUse'
 // colors
 // categories
 
+// parentKey: string = '' if you have parent -> for hirarachy
+// groupKey: "prodcut_cat"
+// name: "Name of the category"
+// key: category key => "man_fashiong" // goes into storatage of product category
+// order: 1
+
 // first create class
 export class VOCategories {
   _id?: Types.ObjectId
 
   parent_key: string = ''
-  description: string = ''
   group_key: string = ''
+  name: string = ''
+  description: string = ''
   key: string = ''
   value: string = ''
-  order: number = 0
+  icon: string = ''
+  order: number | null
 
   createdAt?: Date
-  updateddAt?: Date
+  updatedAt?: Date
 }
 
 const CategoriesSchema = new Schema(
   {
-    parent_key: {
+    // unique key in the parent table of a referencial constarint
+    parentKey: {
       type: String,
       default: null
     },
-    group_key: {
+    groupKey: {
+      type: String,
+      default: null
+    },
+    name: {
       type: String,
       default: null
     },
@@ -53,4 +66,7 @@ const CategoriesSchema = new Schema(
   }
 )
 
-export const ProductModel: Model<VOCategories> = mongoEcommerceStore.model<VOCategories>('categories', CategoriesSchema)
+export const CategoryModel: Model<VOCategories> = mongoEcommerceStore.model<VOCategories>(
+  'categories',
+  CategoriesSchema
+)

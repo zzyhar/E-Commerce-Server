@@ -9,42 +9,31 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getProducts = void 0;
-const product_model_1 = require("shared/db/models/product.model");
-const getProducts = (req, resp) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a, _b, _c;
+exports.getCategories = void 0;
+const categories_model_1 = require("shared/db/models/categories.model");
+const getCategories = (req, resp) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
     try {
-        let slugs = (_a = req.body.slugs) !== null && _a !== void 0 ? _a : [];
-        let tags = (_b = req.body.tags) !== null && _b !== void 0 ? _b : [];
-        let limit = (_c = req.body.limit) !== null && _c !== void 0 ? _c : 10;
+        let group_key = req.body.group_key;
+        let limit = (_a = req.body.limit) !== null && _a !== void 0 ? _a : 10;
+        limit = limit > 10 || limit < 0 ? 10 : limit;
         let filter_query = {};
-        if (slugs.length) {
-            filter_query.slug = {
-                $in: slugs
+        if (group_key.length) {
+            filter_query.group_key = {
+                $in: [group_key]
             };
         }
-        if (tags.length) {
-            filter_query.tags = {
-                $in: tags
-            };
-        }
+        const projection = { name: 1, key: 1, icon: 1 };
         if (!Object.keys(filter_query).length) {
             throw 'No parameters provided';
         }
-        let products = yield product_model_1.ProductModel.find(filter_query, {
-            slug: 1
-        }, {
+        let categories = yield categories_model_1.CategoryModel.find(filter_query, projection, {
             limit
         });
-        console.log(products);
-        resp.status(200).json({
-            products
-        });
+        resp.status(200).json(categories);
     }
     catch (error) {
-        resp.status(500).json({
-            data: {}
-        });
+        resp.status(500).json();
     }
 });
-exports.getProducts = getProducts;
+exports.getCategories = getCategories;

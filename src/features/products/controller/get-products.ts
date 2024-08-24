@@ -35,7 +35,7 @@ export const getProducts = async (req: Request, resp: Response) => {
         limit
       }
     )
-
+    console.log(products)
     resp.status(200).json({
       products
     })
