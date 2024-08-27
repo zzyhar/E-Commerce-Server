@@ -40,6 +40,10 @@ const CategoriesSchema = new mongoose_1.Schema({
         type: String,
         default: null
     },
+    icon: {
+        type: String,
+        default: null
+    },
     order: {
         type: Number,
         default: null

@@ -55,6 +55,10 @@ const CategoriesSchema = new Schema(
       type: String,
       default: null
     },
+    icon: {
+      type: String,
+      default: null
+    },
     order: {
       type: Number,
       default: null
