@@ -29,7 +29,11 @@ export const getProducts = async (req: Request, resp: Response) => {
     let products: VOProduct[] = await ProductModel.find(
       filter_query,
       {
-        slug: 1
+        slug: 1,
+        title: 1,
+        images: 1,
+        variations: 1,
+        createdAt: 1
       },
       {
         limit

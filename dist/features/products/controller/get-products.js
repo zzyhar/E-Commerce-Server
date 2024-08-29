@@ -32,7 +32,11 @@ const getProducts = (req, resp) => __awaiter(void 0, void 0, void 0, function* (
             throw 'No parameters provided';
         }
         let products = yield product_model_1.ProductModel.find(filter_query, {
-            slug: 1
+            slug: 1,
+            title: 1,
+            images: 1,
+            variations: 1,
+            createdAt: 1
         }, {
             limit
         });

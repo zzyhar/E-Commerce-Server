@@ -7,7 +7,7 @@ class ProductsRouter {
     constructor() {
         this.router = (0, express_1.Router)();
         this.controller = new controller_1.ProductsController();
-        this.router.get('/get-products', this.controller.getProducts);
+        this.router.post('/get-products', this.controller.getProducts);
     }
 }
 exports.ProductsRouter = ProductsRouter;

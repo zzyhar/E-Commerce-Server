@@ -6,6 +6,6 @@ export class ProductsRouter {
   public controller: ProductsController = new ProductsController()
 
   constructor() {
-    this.router.get('/get-products', this.controller.getProducts)
+    this.router.post('/get-products', this.controller.getProducts)
   }
 }

@@ -21,21 +21,21 @@ const ProductSchema = new mongoose_1.Schema({
         type: String,
         default: null
     },
+    description: {
+        type: String,
+        default: null
+    },
     slug: {
         type: String,
         default: null
     },
-    description: {
-        type: String,
+    categories: {
+        type: [String],
         default: null
     },
     images: {
         type: [String],
         default: []
-    },
-    categories: {
-        type: [String],
-        default: null
     },
     tags: {
         type: [String],

@@ -34,22 +34,24 @@ const ProductSchema = new Schema(
       type: String,
       default: null
     },
-    slug: {
-      type: String,
-      default: null
-    },
     description: {
       type: String,
       default: null
     },
-    images: {
-      type: [String],
-      default: []
+    slug: {
+      type: String,
+      default: null
     },
     categories: {
       type: [String],
       default: null
     },
+
+    images: {
+      type: [String],
+      default: []
+    },
+
     tags: {
       type: [String],
       default: null
